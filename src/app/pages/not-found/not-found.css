@@ -1,0 +1,114 @@
+
+.nf-code{
+  font-size: clamp(96px, 12vw, 170px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 2px;
+  filter: drop-shadow(0 18px 45px rgba(249,115,22,.22));
+  margin: 0 0 18px;
+}
+
+.nf-orb{
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 18px;
+}
+
+.nf-orb-inner{
+  width: 115px;
+  height: 115px;
+  background: rgba(249,115,22,.10);
+  border: 1px solid rgba(249,115,22,.25);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+}
+
+.nf-face{
+  font-size: 40px;
+  color: rgba(249,115,22,.9);
+}
+
+.nf-dot{
+  width: 14px;
+  height: 14px;
+  background: rgba(249,115,22,.95);
+  box-shadow: 0 0 0 8px rgba(249,115,22,.12);
+}
+.nf-dot-1{
+  top: 6px;
+  right: 10px;
+  transform: scale(1);
+}
+.nf-dot-2{
+  width: 10px;
+  height: 10px;
+  left: 15px;
+  bottom: 20px;
+  background: rgba(245,158,11,.9);
+  box-shadow: 0 0 0 8px rgba(245,158,11,.10);
+}
+
+.nf-title{
+  font-size: clamp(20px, 2.6vw, 30px);
+  font-weight: 600;
+  color: #fff;
+}
+
+.nf-sub{
+  max-width: 520px;
+  color: rgba(182,188,197,.85);
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.nf-btn{
+  border-radius: 999px;
+}
+.btn-to-home{
+    background-image: linear-gradient(135deg, rgb(249, 115, 22), rgb(234, 88, 12));
+    transition: all 0.5s ease;
+}
+.btn-to-home:hover{
+    transform: translateY(-2px);
+}
+.nf-btn-outline{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.03);
+  color: #fff;
+  border-radius: 999px;
+  transition: all .25s ease;
+}
+
+.nf-btn-outline:hover{
+  border-color:  rgb(236, 115, 28);
+  color: rgb(236, 115, 28);
+  background: rgba(249, 116, 22, 0.09);
+  transform: translateY(-2px);
+}
+
+.nf-links{
+  border-top: 1px solid rgba(53, 53, 53, 0.7);
+}
+
+.nf-links-title{
+  font-size: 14px;
+}
+
+.nf-link{
+  color: rgba(249,115,22,.95);
+  text-decoration: none;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.nf-link:hover{
+  color: #fb923c;
+  transform: translateY(-1px);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.nf-dot-sep{
+  color: rgba(182,188,197,.55);
+  font-weight: 900;
+}
+

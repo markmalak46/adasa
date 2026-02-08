@@ -1,0 +1,205 @@
+<section class="blog-hero pt-2 position-relative">
+  <div class="container-lg d-flex justify-content-center align-items-center flex-column px-md-5 text-center">
+
+    <div class="d-flex justify-content-center">
+      <div class="blog-badge d-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-4">
+        <span class="badge-dot rounded-circle"></span>
+        <span class="badge-text fw-medium d-flex align-items-center gap-2">
+          <i class="fa-regular fa-newspaper"></i>
+          مدونتنا
+        </span>
+      </div>
+    </div>
+
+    <h1 class="blog-title fw-bold text-white m-0 mb-3">
+      استكشف <span class="text-accent">مقالاتنا</span>
+    </h1>
+
+    <p class="blog-subtitle mx-auto mb-0">
+      اكتشف الدروس والرؤى وأفضل الممارسات للتطوير الحديث
+    </p>
+
+  </div>
+</section>
+
+<section class="bg-custom">
+  <div class="blog-page py-3">
+    <div class="container-xl px-md-5">
+      <div class="row align-items-center justify-content-between g-3">
+        <div class="col-12 col-lg-5">
+
+          <div class="search-box position-relative ms-lg-auto">
+            <input type="text" class="form-control rounded-4 text-white" placeholder="ابحث في المقالات..."
+              [value]="query" (input)="setQuery(($any($event.target)).value)" />
+            <i class="fa-solid fa-magnifying-glass position-absolute"></i>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-7">
+          <div class="align-items-center gap-2 d-flex justify-content-end">
+            @for (c of categories; track c) {
+            <button type="button" class="chip rounded-3 px-3 py-2 fw-medium" [class.is-active]="activeCategory === c"
+              (click)="setCategory(c)">
+              {{ c === "الكل" ? "جميع المقالات" : c }}
+            </button>
+            }
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container-xl px-md-5 pt-5 pb-5">
+    <div class="row align-items-center g-3">
+      <div class="col-12 col-lg-6 d-flex justify-content-start text-lg-start text-center">
+        <div class="results-count">
+          عرض <span class="text-white fw-bold">{{ totalCount }}</span> مقالات
+        </div>
+      </div>
+
+      <div class="col-12 d-flex justify-content-end col-lg-6">
+        <div class="view-toggle d-flex justify-content-center align-items-center rounded-3 p-1">
+          <button type="button" class="vt-btn" [class.is-active]="viewMode === 'grid'" (click)="setMode('grid')">
+            <i class="fa-solid fa-grip"></i> </button>
+          <button type="button" class="vt-btn" [class.is-active]="viewMode === 'list'" (click)="setMode('list')">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    @if (paged.length === 0) {
+    <div class="empty-state text-center py-5">
+      <div class="text-white-50">لا توجد مقالات مطابقة</div>
+    </div>
+    } @else {
+
+    @if (viewMode === 'grid') {
+    <div class="row g-4 mt-1">
+      @for (p of paged; track p.id) {
+      <div class="col-12 col-md-6 col-lg-4">
+        <a class="post-card text-decoration-none overflow-hidden rounded-5 h-100 d-flex flex-column"
+          [routerLink]="['/post']">
+
+          <div class="post-media position-relative overflow-hidden">
+            <img class="post-img d-block" [src]="p.image" [alt]="p.title" />
+            <span class="post-chip fw-medium text-white position-absolute z-2 rounded-pill">{{ p.category }}</span>
+            <div class="post-overlay position-absolute"></div>
+          </div>
+
+          <div class="post-body d-flex flex-column justify-content-between">
+            <div class="">
+              <div class="post-meta d-flex justify-content-between gap-3">
+                <span class="meta-item">
+                  <i class="fa-regular fa-clock ms-1"></i>
+                  {{ p.readTime }}
+                </span>
+                <span class="meta-item">
+                  {{ p.date }}
+                </span>
+              </div>
+
+              <h3 class="post-title fw-bold mb-2">{{ p.title }}</h3>
+              <p class="post-excerpt">{{ p.excerpt }}</p>
+
+              <div class="post-divider mb-2 mt-auto"></div>
+            </div>
+            <div class="post-footer pt-1 d-flex align-items-center justify-content-between align-items-end">
+              <div class="d-flex align-items-center gap-2">
+                <img class="author-avatar rounded-circle" [src]="p.author.avatar" [alt]="p.author.name" />
+                <div class="author-text">
+                  <div class="author-name text-white">{{ p.author.name }}</div>
+                  <div class="author-role">{{ p.author.role }}</div>
+                </div>
+              </div>
+
+              <span class="post-cta rounded-circle d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-angle-left"></i>
+              </span>
+            </div>
+          </div>
+
+        </a>
+      </div>
+      }
+    </div>
+    } @else {
+
+    <div class="d-flex flex-column gap-4 mt-4">
+      @for (p of paged; track p.id) {
+      <a class="post-row text-decoration-none rounded-4 overflow-hidden d-flex flex-column flex-md-row"
+        [routerLink]="['/post']">
+
+        <div class="post-row-media position-relative">
+          <img [src]="p.image" class="d-block" [alt]="p.title" />
+        </div>
+
+        <div class="post-row-body d-flex flex-column">
+          <div class="post-row-top d-flex flex-wrap align-items-center justify-content-start gap-2">
+            <span class="post-chip rounded-pill fw-medium">{{ p.category }}</span>
+            <div class="post-row-meta d-flex align-items-center gap-2">
+              <span class="meta-item">
+                <i class="fa-regular fa-clock me-2"></i>
+                {{ p.readTime }}
+              </span>
+              <span class="dot-sep">•</span>
+              <span class="meta-item">
+                <i class="fa-regular fa-calendar"></i>
+                {{ p.date }}
+              </span>
+            </div>
+
+          </div>
+
+          <h3 class="post-row-title m-0 fw-bold mt-3 mb-2">{{ p.title }}</h3>
+          <p class="post-row-des mt-2 mb-0">{{ p.excerpt }}</p>
+
+          <div class="post-row-bottom mt-auto d-flex align-items-center justify-content-between flex-wrap gap-3 pt-3">
+            <div class="d-flex align-items-center gap-2">
+              <img class="author-avatar rounded-circle" [src]="p.author.avatar" [alt]="p.author.name" />
+              <div class="author-text text-end">
+                <div class="author-name text-white">{{ p.author.name }}</div>
+                <div class="author-role">{{ p.author.role }}</div>
+              </div>
+            </div>
+
+            <span class="read-cta d-inline-flex align-items-center gap-2">
+              اقرأ المقال
+              <i class="fa-solid fa-arrow-left"></i>
+            </span>
+          </div>
+        </div>
+      </a>
+      }
+    </div>
+
+    }
+
+    <!-- Pagination -->
+    <div class="pagination-wrap text-center mt-5">
+      <div class="d-flex justify-content-center gap-2">
+        <button type="button" class="pg-btn rounded-3 d-flex justify-content-center align-items-center" (click)="prev()"
+          [disabled]="page === 1">
+          <i class="fa-solid fa-angle-right"></i>
+        </button>
+
+        @for (p of pages; track p) {
+        <button type="button" class="pg-btn rounded-3" [class.is-active]="page === p" (click)="goTo(p)">
+          {{ p }}
+        </button>
+        }
+
+        <button type="button" class="pg-btn rounded-3 d-flex justify-content-center align-items-center"
+          (click)="next()">
+          <i class="fa-solid fa-angle-left"></i>
+        </button>
+      </div>
+
+      <div class="pg-meta mt-3">
+        صفحة {{ page }} من {{ totalPages }}
+      </div>
+    </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,213 @@
+:root{
+  --orange:#ff7a18;
+  --orange2:#ffb018;
+  --muted: rgb(174, 174, 174);
+  --border: rgba(255,255,255,.08);
+}
+
+
+.gradient-text{
+  background: linear-gradient(135deg, rgb(249, 115, 22), rgb(251, 191, 36));
+  background-clip:text;
+  color:transparent;
+}
+
+.about-badge{
+  background: rgba(255,122,24,.10);
+  border: 1px solid rgba(255,122,24,.22);
+  color: var(--orange);
+}
+
+.about-badge .dot{
+  width: 6px;
+  height: 6px;
+  background: var(--orange);
+}
+
+.about-title{
+  font-size: clamp(34px, 4.8vw, 56px);
+}
+
+.about-sub{
+  max-width: 720px;
+  color:var(--muted);
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 1.75;
+}
+
+.cards{
+  max-width: 920px;
+}
+.stat-card{
+background-color: rgba(22, 22, 22);
+  border: 1px solid rgba(255,255,255,.07);
+transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.stat-card:hover{
+  transform: translateY(-6px);
+  border-color: var(--orange);
+}
+
+
+
+.stat-ic i{ font-size: 26px; 
+  color: var(--orange);
+}
+
+.stat-num{
+  font-size: clamp(26px, 2.2vw, 30px);
+
+    background: linear-gradient(135deg, rgb(249, 115, 22), rgb(251, 191, 36));
+  background-clip:text;
+  color:transparent;
+}
+
+.stat-label{
+  color: var(--muted);
+  font-size: 14px;
+}
+.about-values{
+    border-block: 1px solid var(--border);
+  position: relative;
+  background: rgb(17, 17, 17);
+}
+
+.values-kicker .k-text{
+  font-size: clamp(22px, 2.2vw, 38px);
+}
+.values-kicker .k-line{
+  width: 6px;
+  height: 32px;
+background-image: linear-gradient(oklch(0.705 0.213 47.604) 0%, oklch(0.795 0.184 86.047) 100%)
+}
+
+.values-sub{
+  color: var(--muted);
+  font-size: 18px;
+}
+.width-custom{
+    max-width: 1100px;
+}
+.value-card{
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.value-card:hover{
+  transform: translateY(-6px);
+  background: rgba(255, 120, 24, 0.073);
+  border-color: var(--orange);
+  transition: all 0.2s ease;
+}
+.value-card:hover .value-title{
+    color: var(--orange);
+}
+.value-ic{
+  color: var(--orange);
+ }
+
+.value-ic i{ font-size: 36px; }
+
+.value-title{
+  color:#fff;
+  font-size: 18px;
+}
+
+.value-desc{
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 576px){
+  .values-kicker .k-line{ height: 28px; }
+  .value-card{ border-radius: 22px; }
+  .value-ic{ border-radius: 16px; }
+}
+
+.team-section{
+  background: rgba(10,10,10);
+}
+
+.team-title{
+  font-size: clamp(28px, 3.4vw, 38px);
+}
+.team-sub{
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.team-card{
+  background:rgb(22, 22, 22);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 26px 90px rgba(0,0,0,.55);
+  transition: scale .3s ease, border-color .3s ease, background .25s ease;
+}
+
+.team-card:hover{
+  scale: 1.02;
+  background: rgba(255, 255, 255, 0.062);
+  border-color: var(--orange);
+}
+
+.avatar-wrap{
+  width: 100px;
+  height: 100px;
+}
+
+.team-avatar{
+  object-fit: cover;
+  border: 6px solid rgba(255,255,255,.06);
+  transition: border-color 0.3s;
+}
+.team-card:hover .team-avatar{
+    border-color: var(--orange);
+}
+.verify-badge{
+  right: 0px;
+  bottom: 0px;
+  width: 26px;
+  height: 26px;
+  background: var(--orange);
+  border: 2px solid rgba(10,10,10,.92);
+}
+.verify-badge i{ font-size: 12px; }
+
+.team-name{
+  font-size: 18px;
+}
+.team-role{
+  color: var(--orange);
+  font-size: 14px;
+}
+
+.s-btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgb(38, 38, 38);
+  color: var(--muted);
+  transition: transform .2s ease, border-color .2s ease,  background-color .2s ease, color .2s ease;
+}
+.s-btn:hover{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,122,24,.22);
+}
+.s-btn:hover.s-X{
+    color: white;
+    background-color: oklch(0.705 0.213 47.604);
+}
+.s-btn:hover.s-github{
+    color: white;
+    background-color: oklch(0% 0 0);
+}
+.s-btn:hover.s-linkedIn{
+    color: white;
+    background-color: oklch(0.546 0.245 262.881);
+}
+
+@media (max-width: 576px){
+  .team-card{ border-radius: 22px; }
+  .avatar-wrap, .team-avatar{ width: 92px; height: 92px; }
+}

@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #0a0a0a;
+  --panel: #161616;
+  --border: #262626;
+  --muted: #9aa3ad;
+  --muted2: #b6bcc5;
+  
+  --orange: #f97316;
+  --orange2: #ea580c;
+  --yellow: #f59e0b;
+  --shadow: 0 12px 40px rgba(0, 0, 0, .35);
+}
+
+body {
+  font-family: "Tajawal", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  background: #0b0f19;
+}
+
+.bg-app {
+  background: var(--bg)
+}
+
+.bg-panel {
+  background: var(--panel)
+}
+
+.border-app {
+  border: 1px solid var(--border)
+}
+
+.text-muted2 {
+  color: var(--muted2)
+}
+
+.text-muted-app {
+  color: var(--muted)
+}
+
+.app-bg {
+  min-height: 100vh;
+  position: relative;
+  background: var(--bg);
+}
+
+.app-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(38, 38, 38, .75) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(38, 38, 38, .75) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: .65;
+  pointer-events: none;
+}
+
+.app-surface {
+  position: relative;
+  z-index: 1;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--orange), var(--yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

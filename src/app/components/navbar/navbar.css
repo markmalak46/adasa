@@ -1,0 +1,79 @@
+:host { direction: rtl; }
+
+.navbar-app{
+  background: #161616;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  /* transition: all .35s ease; */
+}
+.navbar-brand img{
+    width: 3rem;
+    height: 3rem;
+    transition: all 0.2s;
+}
+.navbar-brand:hover img{
+    scale: 1.08;
+}
+.logo-title{
+    color: #fff;
+}
+.logo-description{
+    color: rgba(251,146,60,.85);
+    font-size: 0.75rem;
+}
+
+.nav-pill-wrap{
+  background: transparent;
+  border:1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px;
+  gap: .25rem;
+}
+
+.nav-pill-wrap .nav-link{
+  border-radius: 999px;
+  color: #9ca3af;
+  padding: 9px 18px;
+  font-size: 14px;
+  transition: all .25s ease;
+}
+.nav-pill-wrap .nav-link:hover{ color:#fff; }
+
+.nav-pill-wrap .nav-link.active{
+  background: linear-gradient(to right, oklch(0.705 0.213 47.604) 0%, oklch(0.646 0.222 41.116) 100%);
+  color:#fff;
+}
+
+.icon-btn{
+  width:44px; 
+  height:44px;
+  border-radius: 1rem;
+  border:1px solid transparent;
+  background: transparent;
+  color:#9ca3af;
+  transition: all .25s ease;
+}
+.icon-btn:hover{
+  color: var(--orange);
+  background: #161616;
+  border-color: var(--border);
+  transform: translateY(-1px);
+}
+
+.gradient-text{
+  background: linear-gradient(90deg, var(--orange), var(--yellow));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.read-btn{
+    background-image: linear-gradient(135deg, rgb(249, 115, 22), rgb(234, 88, 12));
+  border-radius: 999px;
+  padding: 0.9375rem 1.625rem;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+.read-btn:hover{
+    transform: translateY(-3px);
+}
